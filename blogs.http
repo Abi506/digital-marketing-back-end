@@ -1,0 +1,15 @@
+###
+POST http://localhost:3001/blogs
+Content-Type: application/json
+
+{
+    "imageUrl": "ssdmn",
+    "outerTitle": "lkdfg",
+    "outerAuthorDate": "dljnf",
+    "outerDescription": "sdklfgklfdnkldnfkl",
+    "innerTitle": "What is a link?",
+    "innerDescription": "skdfmnln."
+}
+
+###
+GET http://localhost:3001/blogs
