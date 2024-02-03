@@ -6,6 +6,7 @@ app.use(cors());
 const path = require("path");
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3");
+const { request } = require("https");
 
 let data=null;
 let dbPath=path.join(__dirname,"digitalmarketing.db")
@@ -55,4 +56,86 @@ app.get('/blogs/',async(request,response)=>{
   const showBlogsArray=await data.all(showBlogsQuery);
   console.log(showBlogsArray,'blogs array ----')
   response.send(showBlogsArray);
+})
+
+app.delete('/blogs/:id/',async(request,response)=>{
+  const {id}=request.params
+  const deleteBlogsQuery=
+  `
+  DELETE FROM blogs 
+  WHERE id=${id}
+  `
+  const deleteBlogsArr=await data.run(deleteBlogsQuery)
+  response.send("Blogs deleted Successfully");
+})
+
+app.get('/blogs/:id',async(request,response)=>{
+  const{id}=request.params
+  const getBlogsQuery=`
+  SELECT * FROM blogs 
+  WHERE id=${id}
+  `
+
+  const getBlogsArr=await data.get(getBlogsQuery);
+  response.send(getBlogsArr);
+})
+
+app.post('/services/', async (request, response) => {
+  try {
+    const {
+      icon,
+      serviceType,
+      serviceOuterDescription,
+      serviceLandingImage,
+      serviceLandingHeading,
+      serviceLandingPara,
+      serviceCardHeading,
+      serviceCardPara,
+      serviceInnerHeading,
+      serviceInnerPara
+    } = request.body;
+
+    const postServicesQuery = `
+      INSERT INTO services(icon, serviceType, serviceOuterDescription, serviceLandingImage, serviceLandingHeading, serviceLandingPara, serviceCardHeading, serviceCardPara, serviceInnerHeading, serviceInnerPara)
+      VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    await data.run(postServicesQuery, [
+      icon,
+      serviceType,
+      serviceOuterDescription,
+      serviceLandingImage,
+      serviceLandingHeading,
+      serviceLandingPara,
+      serviceCardHeading,
+      serviceCardPara,
+      serviceInnerHeading,
+      serviceInnerPara
+    ]);
+
+    console.log("Added successfully");
+    response.send("Added Successfully");
+  } catch (error) {
+    console.error("Error:", error.message);
+    response.status(500).send("Internal Server Error");
+  }
+});
+
+app.get('/services/',async(request,response)=>{
+  const getServicesQuery=`
+  SELECT * FROM services
+  `
+  const getServicesArray=await data.all(getServicesQuery)
+  response.send(getServicesArray)
+})
+
+app.get('/services/:id',async(request,response)=>{
+  const {id}=request.params
+
+  const getServiceQuery=`
+  SELECT * FROM services
+  WHERE id=${id}
+  `
+  const getServiceArray=await data.get(getServiceQuery)
+  response.send(getServiceArray)
 })

@@ -3,13 +3,22 @@ POST http://localhost:3001/blogs
 Content-Type: application/json
 
 {
-    "imageUrl": "ssdmn",
-    "outerTitle": "lkdfg",
-    "outerAuthorDate": "dljnf",
-    "outerDescription": "sdklfgklfdnkldnfkl",
-    "innerTitle": "What is a link?",
-    "innerDescription": "skdfmnln."
+    "imageUrl": "https://res.cloudinary.com/dkmnh0kwl/image/upload/v1706887385/img6_bml3ed.jpg",
+    "outerTitle": "5 Reasons to outsource your digital marketing",
+    "outerAuthorDate": "march 5, 2016",
+    "outerDescription": "Many companies puzzle with the same question; “can we do digital marketing ourselves or do we need to outsource it to a digital marketing agency?” In theory the answer to that question is simple; you can do everything internally with the right people. But in realty this often turns out to be a bigger challenge than expected. Digital marketing is a world of its own, and it’s difficult to know every element since it consists of many facets, limitless possibilities and ever-changing features. It’s challenging to master the subject if it is not your core business focus. Investing in a (well-planned) digital marketing strategy is a clever decision for your company’s growth. So our advice is to outsource it partially or completely to a digital marketing agency. In this article the 5 main reasons why will be highlighted.",
+    "innerTitle": "Outsource your digital marketing",
+    "innerDescription": "1. Cost Effective\nSetting up and implementing an online marketing strategy requires several skills (e.g. SEO, SEA, SMM, etc.) Ideally you want to have in-house specialists to do so, but creating and managing a full digital marketing team involves time and money. An online marketing agency consists of experts that work full-time within their discipline, and have working experience across multiple industries. As a customer you get to benefit from the best in the field to aid your company. With a digital marketing agency, you can hire experts per hour or per project, without long contracts, giving you more control over the total costs. This gives you the option to easily upscale or downscale your digital marketing, and what to manage in-house.\n\n2. Get access to the latest technology\nAn effective digital marketing agency has access to special tools that gives them the benefit of fast and accurate research, analysis and strategy, less repetitive work, faster implementation, and faster achievement of business goals. These high-end marketing tools are often expensive. By outsourcing, your costs are saved instantly and you get access to tools without having to take out an expensive subscription yourself.\n\n3. Ongoing maintenance & optimizations\nGreat agencies will go the extra mile to help clients succeed. Those agencies know that a client’s success has a positive impact on the agency itself since positive results and references will improve the reputation of the marketing agency. Therefore, the work of agencies does not stop after the creation of a website or campaign. They will continuously test and improve their work to improve its effectiveness.\n\n4. New insights & perspective\nAn online marketing agency works together with different types of companies and industries. Through their experience they know what is needed to make a website or campaign perform. Hiring an outsourced marketing agency can give you a new perspective and insight on how to approach your marketing today.\n\n5. Up-to-date knowledge and skills\nThe digital marketing industry is dynamic and ever-changing. Strategies that were effective in the past, may no longer be effective in the present. Therefore, digital marketing experts spend a lot of their time learning new skills and improving existing techniques and strategies in their daily work. It is essential that an online marketing agency always has the most up-to-date knowledge. Thus, outsourcing digital marketing ensures an efficient and up-to-date approach.\n\nTo make the most of digital marketing opportunities and grow your business, outsourcing to a digital marketing agency is a great idea. Grid Marketing uses a clear and result-oriented working method to help clients achieve business goals. Do you want more information, or would you like to discuss the possibilities of outsourcing your online marketing? Book a free consultation with our digital marketing experts."
 }
+
+
+
 
 ###
 GET http://localhost:3001/blogs
+
+###
+DELETE http://localhost:3001/blogs/3
+
+###
+GET http://localhost:3001/blogs/1

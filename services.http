@@ -1,0 +1,14 @@
+###
+POST http://localhost:3001/services
+Content-Type: application/json
+
+
+
+###
+GET http://localhost:3001/services/
+
+###
+GET http://localhost:3001/services/2
+
+
+
