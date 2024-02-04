@@ -1,0 +1,6 @@
+###
+POST http://localhost:3001/contact
+Content-Type: application/json
+
+###
+GET http://localhost:3001/contact 

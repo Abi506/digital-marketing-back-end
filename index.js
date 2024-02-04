@@ -139,3 +139,28 @@ app.get('/services/:id',async(request,response)=>{
   const getServiceArray=await data.get(getServiceQuery)
   response.send(getServiceArray)
 })
+
+app.post('/contact/',async(request,response)=>{
+  const{name,emailAddress,message}=request.body 
+
+  const contactQuery=`
+  INSERT INTO contact(name,emailAddress,message)
+  VALUES(
+    '${name}',
+    '${emailAddress}',
+    '${message}'
+  )
+  `;
+
+  const contactArray=await data.run(contactQuery)
+  console.log(contactArray)
+  response.send("Contact Added Successfully")
+})
+
+app.get('/contact/',async(request,response)=>{
+  const contactGetQuery=`
+  select * from contact 
+  `
+  const contactAllArray=await data.all(contactGetQuery)
+  response.send(contactAllArray);
+})
